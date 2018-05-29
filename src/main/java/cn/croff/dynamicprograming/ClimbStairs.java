@@ -1,22 +1,33 @@
 package cn.croff.dynamicprograming;
 
-import java.util.Scanner;
-
 /**
- * 你正在爬楼梯。需要 n 步你才能到达顶部。
- * 每次你可以爬 1 或 2 个台阶。你有多少种不同的方式可以爬到楼顶呢？
- * 注意：给定 n 将是一个正整数。
+ * 70. Climbing Stairs
+ * You are climbing a stair case. It takes n steps to reach to the top.
+ * Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+ * Note: Given n will be a positive integer.
+ * <p>
+ * Example 1:
+ * Input: 2
+ * Output: 2
+ * Explanation: There are two ways to climb to the top.
+ * 1. 1 step + 1 step
+ * 2. 2 steps
+ * Example 2:
+ * Input: 3
+ * Output: 3
+ * Explanation: There are three ways to climb to the top.
+ * 1. 1 step + 1 step + 1 step
+ * 2. 1 step + 2 steps
+ * 3. 2 steps + 1 step
  */
 public class ClimbStairs {
 
-    private static int[] records;
-
-    private static int climbStairs(int target) {
-        records = new int[target];
-        return recursiveClimbStairs(target);
+    public int climbStairs(int target) {
+        int[] records = new int[target];
+        return recursiveClimbStairs(records, target);
     }
 
-    private static int recursiveClimbStairs(int target) {
+    private int recursiveClimbStairs(int[] records, int target) {
         if (target == 1) {
             return 1;
         } else if (target == 2) {
@@ -25,18 +36,10 @@ public class ClimbStairs {
             if (records[target - 1] != 0) {
                 return records[target - 1];
             } else {
-                int result = recursiveClimbStairs(target - 1) + recursiveClimbStairs(target - 2);
+                int result = recursiveClimbStairs(records, target - 1) + recursiveClimbStairs(records, target - 2);
                 records[target - 1] = result;
                 return result;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int target = scanner.nextInt();
-        scanner.close();
-        int ways = climbStairs(target);
-        System.out.println(ways);
     }
 }

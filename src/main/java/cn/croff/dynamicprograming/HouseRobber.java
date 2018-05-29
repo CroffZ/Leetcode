@@ -1,14 +1,22 @@
 package cn.croff.dynamicprograming;
 
-import java.util.Scanner;
-
 /**
- * 你是一个专业的强盗，计划抢劫沿街的房屋。每间房都藏有一定的现金，阻止你抢劫他们的唯一的制约因素就是相邻的房屋有保安系统连接，如果两间相邻的房屋在同一晚上被闯入，它会自动联系警方。
- * 给定一个代表每个房屋的金额的非负整数列表，确定你可以在没有提醒警方的情况下抢劫的最高金额。
+ * 198. House Robber
+ * You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+ * Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
+ * <p>
+ * Example 1:
+ * Input: [1,2,3,1]
+ * Output: 4
+ * Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3). Total amount you can rob = 1 + 3 = 4.
+ * Example 2:
+ * Input: [2,7,9,3,1]
+ * Output: 12
+ * Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1). Total amount you can rob = 2 + 9 + 1 = 12.
  */
 public class HouseRobber {
 
-    private static int rob(int[] nums) {
+    public int rob(int[] nums) {
         if (nums.length > 0) {
             int[][] max = new int[nums.length][2];
             max[0][0] = 0;
@@ -29,17 +37,5 @@ public class HouseRobber {
         } else {
             return 0;
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int length = scanner.nextInt();
-        int[] array = new int[length];
-        for (int i = 0; i < length; i++) {
-            array[i] = scanner.nextInt();
-        }
-        scanner.close();
-        int max = rob(array);
-        System.out.println(max);
     }
 }
