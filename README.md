@@ -8,7 +8,6 @@
 * 5.Longest Palindromic Substring
 * 6.ZigZag Conversion
 * 8.String to Integer (atoi)
-* 17.Letter Combinations of a Phone Number
 
 ## Array
 * 4.Median of Two Sorted Arrays
@@ -19,12 +18,19 @@
 * 19.Remove Nth Node From End of List
 * 21.Merge Two Sorted Lists
 
+## Stack
+* 20.Valid Parentheses
+
+## Queue
+
 ## Tree
 
 ## Hash
 * 1.Two Sum
 * 3.Longest Substring Without Repeating Characters
 * 217.Contains Duplicate
+
+## Greedy Algorithm
 
 ## Dynamic Programing
 * 53.Maximum Subarray
@@ -36,5 +42,8 @@
 ## Two Pointers
 * 11.Container With Most Water
 * 15.3Sum
+* 26.Remove Duplicates from Sorted Array
 
-## Greedy Algorithm
+## Backtracking
+* 17.Letter Combinations of a Phone Number
+* 22.Generate Parentheses

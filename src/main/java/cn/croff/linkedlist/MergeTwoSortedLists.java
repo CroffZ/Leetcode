@@ -10,14 +10,14 @@ package cn.croff.linkedlist;
  */
 public class MergeTwoSortedLists {
 
-    private class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
+    /*
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode(int x) { val = x; }
+     * }
+     */
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode result = null, current = null;

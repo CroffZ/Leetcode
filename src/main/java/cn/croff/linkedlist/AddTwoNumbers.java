@@ -12,14 +12,14 @@ package cn.croff.linkedlist;
  */
 public class AddTwoNumbers {
 
-    private class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
+    /*
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode(int x) { val = x; }
+     * }
+     */
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int carry = 0;
