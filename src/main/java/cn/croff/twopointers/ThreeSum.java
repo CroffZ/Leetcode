@@ -20,54 +20,26 @@ import java.util.*;
  */
 public class ThreeSum {
 
-    /**
-     * 双指针解法
-     */
     public List<List<Integer>> threeSum1(int[] nums) {
         Arrays.sort(nums);
         Set<List<Integer>> result = new HashSet<>(nums.length);
-        for (int i = 0; i < nums.length; i++) {
-            int num = -nums[i];
-            int j = i + 1, k = nums.length - 1;
-            while (j < k) {
-                int twoSum = nums[j] + nums[k];
-                if (twoSum == num) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            int p1 = i + 1, p2 = nums.length - 1;
+            while (p1 < p2) {
+                int sum = nums[i] + nums[p1] + nums[p2];
+                if (sum == 0) {
                     List<Integer> list = new ArrayList<>();
-                    list.add(-num);
-                    list.add(num - nums[j]);
-                    list.add(nums[j]);
+                    list.add(nums[i]);
+                    list.add(nums[p1]);
+                    list.add(nums[p2]);
                     list.sort(Integer::compareTo);
                     result.add(list);
-                    j++;
-                    k--;
-                } else if (twoSum > num) {
-                    k--;
+                    p1++;
+                    p2--;
+                } else if (sum > 0) {
+                    p2--;
                 } else {
-                    j++;
-                }
-            }
-        }
-        return new ArrayList<>(result);
-    }
-
-    /**
-     * Hash解法
-     */
-    public List<List<Integer>> threeSum2(int[] nums) {
-        Set<List<Integer>> result = new HashSet<>(nums.length);
-        for (int i = 0; i < nums.length; i++) {
-            Set<Integer> set = new HashSet<>(nums.length);
-            int num = -nums[i];
-            for (int j = i + 1; j < nums.length; j++) {
-                if (set.contains(nums[j])) {
-                    List<Integer> list = new ArrayList<>();
-                    list.add(-num);
-                    list.add(num - nums[j]);
-                    list.add(nums[j]);
-                    list.sort(Integer::compareTo);
-                    result.add(list);
-                } else {
-                    set.add(num - nums[j]);
+                    p1++;
                 }
             }
         }

@@ -8,6 +8,7 @@
 * 5.Longest Palindromic Substring
 * 6.ZigZag Conversion
 * 8.String to Integer (atoi)
+* 14.Longest Common Prefix
 
 ## Array
 * 4.Median of Two Sorted Arrays
@@ -21,9 +22,8 @@
 ## Stack
 * 20.Valid Parentheses
 
-## Queue
-
 ## Tree
+* 94.Binary Tree Inorder Traversal
 
 ## Hash
 * 1.Two Sum
@@ -31,8 +31,10 @@
 * 217.Contains Duplicate
 
 ## Greedy Algorithm
+* 55.Jump Game
 
 ## Dynamic Programing
+* 10.Regular Expression Matching
 * 53.Maximum Subarray
 * 70.Climbing Stairs
 * 121.Best Time to Buy and Sell Stock
@@ -42,6 +44,8 @@
 ## Two Pointers
 * 11.Container With Most Water
 * 15.3Sum
+* 16.3Sum Closest
+* 18.4Sum
 * 26.Remove Duplicates from Sorted Array
 
 ## Backtracking
