@@ -9,6 +9,7 @@
 * 6.ZigZag Conversion
 * 8.String to Integer (atoi)
 * 14.Longest Common Prefix
+* 28.Implement strStr()
 
 ## Array
 * 4.Median of Two Sorted Arrays
@@ -18,12 +19,14 @@
 * 2.Add Two Numbers
 * 19.Remove Nth Node From End of List
 * 21.Merge Two Sorted Lists
+* 83.Remove Duplicates from Sorted List
 
 ## Stack
 * 20.Valid Parentheses
 
 ## Tree
 * 94.Binary Tree Inorder Traversal
+* 100.Same Tree
 
 ## Hash
 * 1.Two Sum
@@ -47,6 +50,7 @@
 * 16.3Sum Closest
 * 18.4Sum
 * 26.Remove Duplicates from Sorted Array
+* 27.Remove Element
 
 ## Backtracking
 * 17.Letter Combinations of a Phone Number
