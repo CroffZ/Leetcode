@@ -19,6 +19,8 @@
 * 2.Add Two Numbers
 * 19.Remove Nth Node From End of List
 * 21.Merge Two Sorted Lists
+* 24.Swap Nodes in Pairs
+* 61.Rotate List
 * 83.Remove Duplicates from Sorted List
 
 ## Stack
