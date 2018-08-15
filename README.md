@@ -22,6 +22,7 @@
 ## Hash
 * 1.Two Sum
 * 3.Longest Substring Without Repeating Characters
+* 146.LRU Cache
 * 217.Contains Duplicate
 
 ## LinkedList
@@ -31,6 +32,8 @@
 * 24.Swap Nodes in Pairs
 * 61.Rotate List
 * 83.Remove Duplicates from Sorted List
+* 148.Sort List
+* 206.Reverse Linked List
 
 ## Math
 * 7.Reverse Integer
