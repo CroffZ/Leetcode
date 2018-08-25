@@ -15,16 +15,16 @@ package cn.croff.dynamicprograming;
 public class MaximumSubArray {
 
     public int maxSubArray(int[] nums) {
-        int max = nums[0], temp = 0;
+        int max = nums[0], sum = 0;
         for (int num : nums) {
-            if (temp < 0) {
-                temp = num;
+            if (sum < 0) {
+                sum = num;
             } else {
-                temp += num;
+                sum += num;
             }
 
-            if (temp > max) {
-                max = temp;
+            if (sum > max) {
+                max = sum;
             }
         }
         return max;

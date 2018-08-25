@@ -1,59 +1,72 @@
-# Leetcode
+# OJLib
 
-## Array
+## Leetcode
+
+### Array
 * 4.Median of Two Sorted Arrays
+* 31.Next Permutation
 * 189.Rotate Array
 
-## Backtracking
+### Backtracking
 * 17.Letter Combinations of a Phone Number
 * 22.Generate Parentheses
+* 39.Combination Sum
 
-## Dynamic Programing
+### Binary Search
+* 33.Search in Rotated Sorted Array
+* 34.Find First and Last Position of Element in Sorted Array
+* 35.Search Insert Position
+
+### Dynamic Programing
 * 10.Regular Expression Matching
+* 32.Longest Valid Parentheses
 * 53.Maximum Subarray
 * 70.Climbing Stairs
 * 121.Best Time to Buy and Sell Stock
+* 152.Maximum Product Subarray
 * 198.House Robber
 * 322.Coin Change
 
-## Greedy Algorithm
+### Greedy Algorithm
 * 55.Jump Game
 
-## Hash
+### Hash
 * 1.Two Sum
 * 3.Longest Substring Without Repeating Characters
 * 146.LRU Cache
 * 217.Contains Duplicate
 
-## LinkedList
+### LinkedList
 * 2.Add Two Numbers
 * 19.Remove Nth Node From End of List
 * 21.Merge Two Sorted Lists
+* 23.Merge k Sorted Lists
 * 24.Swap Nodes in Pairs
+* 25.Reverse Nodes in k-Group
 * 61.Rotate List
 * 83.Remove Duplicates from Sorted List
 * 148.Sort List
 * 206.Reverse Linked List
 
-## Math
+### Math
 * 7.Reverse Integer
 * 9.Palindrome Number
 
-## Stack
+### Stack
 * 20.Valid Parentheses
 
-## String
+### String
 * 5.Longest Palindromic Substring
 * 6.ZigZag Conversion
 * 8.String to Integer (atoi)
 * 14.Longest Common Prefix
 * 28.Implement strStr()
 
-## Tree
+### Tree
 * 94.Binary Tree Inorder Traversal
 * 100.Same Tree
 
-## Two Pointers
+### Two Pointers
 * 11.Container With Most Water
 * 15.3Sum
 * 16.3Sum Closest
