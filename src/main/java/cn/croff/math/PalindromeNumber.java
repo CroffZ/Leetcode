@@ -22,23 +22,12 @@ package cn.croff.math;
 public class PalindromeNumber {
 
     public boolean isPalindrome(int x) {
-        if (x < 0) {
-            return false;
-        } else {
-            int times = 1;
-            while (x / times >= 10) {
-                times *= 10;
-            }
-            while (times > 1) {
-                int head = x / times;
-                int tail = x % 10;
-                if (head != tail) {
-                    return false;
-                }
-                x = (x % times) / 10;
-                times /= 100;
-            }
-            return true;
-        }
+        // 负数直接返回false
+        if (x < 0) return false;
+        // 生成一个x倒过来的数，用copy保存
+        int copy = 0;
+        for (int temp = x; temp > 0; temp /= 10) copy = copy * 10 + (temp % 10);
+        // 如果是回文数，则copy与x应该相等，否则就不是回文数
+        return copy == x;
     }
 }

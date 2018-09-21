@@ -48,13 +48,18 @@ public class RegularExpressionMatching {
         dp[0][0] = true;
         for (int i = 0; i <= s.length(); i++) {
             for (int j = 1; j <= p.length(); j++) {
+                // 设s的最后一个字符为x，p的最后两个字符分别为y和z，除此之外前面的字符分别设为S、P，则：s = Sx，p = Pyz
                 if (i > 0 && (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '.')) {
+                    // 如果x == z或z == '.'，则如果S和Py匹配，则s和p匹配
                     dp[i][j] = dp[i - 1][j - 1];
                 }
                 if (p.charAt(j - 1) == '*') {
+                    // 如果z == '*'，则需要考虑y
                     if (i == 0 || (s.charAt(i - 1) != p.charAt(j - 2) && p.charAt(j - 2) != '.')) {
+                        // 如果x != y，则只有在s和P匹配的情况下，s和p才匹配
                         dp[i][j] = dp[i][j - 2];
                     } else {
+                        // 如果x == y，设匹配符号为~，则如果S~P，S~Py，S~Pyz，Sx~P，Sx~Py，都可得出s和p匹配
                         dp[i][j] = dp[i - 1][j] || dp[i][j - 1] || dp[i][j - 2];
                     }
                 }

@@ -1,4 +1,4 @@
-package cn.croff.dynamicprograming;
+package cn.croff.array;
 
 /**
  * 121. Best Time to Buy and Sell Stock
@@ -18,29 +18,13 @@ package cn.croff.dynamicprograming;
 public class BestTimeToBuyAndSellStock {
 
     public int maxProfit(int[] prices) {
-        if (prices.length > 0) {
-            int[] changes = new int[prices.length];
-            for (int i = 0; i < prices.length; i++) {
-                if (i > 0) {
-                    changes[i] = prices[i] - prices[i - 1];
-                }
-            }
-            // 变为求最大子序列和
-            int max = changes[0], temp = 0;
-            for (int change : changes) {
-                if (temp < 0) {
-                    temp = change;
-                } else {
-                    temp += change;
-                }
-
-                if (temp > max) {
-                    max = temp;
-                }
-            }
-            return max;
-        } else {
-            return 0;
+        if (prices.length == 0) return 0;
+        // 记录之前遍历过的最小值，用遍历的当前值减去这个最小值得到的最大值就是结果
+        int max = 0, min = prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] - min > max) max = prices[i] - min;
+            if (prices[i] < min) min = prices[i];
         }
+        return max;
     }
 }

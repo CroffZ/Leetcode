@@ -19,28 +19,12 @@ package cn.croff.twopointers;
 public class RemoveElement {
 
     public int removeElement(int[] nums, int val) {
-        if (nums.length == 0) {
-            return 0;
+        // length记录新数组的长度
+        int length = 0;
+        for (int num : nums) {
+            // 遍历数组，如果不为val就放在新数组末尾，然后更新length
+            if (num != val) nums[length++] = num;
         }
-
-        int p1 = 0, p2 = nums.length - 1;
-        while (p1 < p2) {
-            if (nums[p1] == val) {
-                if (nums[p2] == val) {
-                    p2--;
-                } else {
-                    int temp = nums[p1];
-                    nums[p1] = nums[p2];
-                    nums[p2] = temp;
-                }
-            } else {
-                p1++;
-            }
-        }
-        if (nums[p1] == val) {
-            return p1;
-        } else {
-            return p1 + 1;
-        }
+        return length;
     }
 }

@@ -25,11 +25,11 @@ package cn.croff.array;
 public class RotateArray {
 
     public void rotate(int[] nums, int k) {
+        // 时间复杂度为O(n*k)的解法，空间复杂度为O(1)
+        int length = nums.length;
         for (int i = 0; i < k; i++) {
-            int temp = nums[nums.length - 1];
-            for (int j = nums.length - 2; j >= 0; j--) {
-                nums[j + 1] = nums[j];
-            }
+            int temp = nums[length - 1];
+            System.arraycopy(nums, 0, nums, 1, length - 1);
             nums[0] = temp;
         }
     }

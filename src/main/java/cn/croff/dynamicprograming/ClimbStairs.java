@@ -22,24 +22,16 @@ package cn.croff.dynamicprograming;
  */
 public class ClimbStairs {
 
-    public int climbStairs(int target) {
-        int[] records = new int[target];
-        return recursiveClimbStairs(records, target);
-    }
-
-    private int recursiveClimbStairs(int[] records, int target) {
-        if (target == 1) {
-            return 1;
-        } else if (target == 2) {
-            return 2;
-        } else {
-            if (records[target - 1] != 0) {
-                return records[target - 1];
-            } else {
-                int result = recursiveClimbStairs(records, target - 1) + recursiveClimbStairs(records, target - 2);
-                records[target - 1] = result;
-                return result;
-            }
+    public int climbStairs(int n) {
+        // 状态转移方程就是斐波那契数列
+        if (n <= 2) return n;
+        int[] records = new int[n];
+        // f(1)=1，f(2)=2
+        records[0] = 1;
+        records[1] = 2;
+        for (int i = 2; i < n; i++) {
+            records[i] = records[i - 1] + records[i - 2];
         }
+        return records[n - 1];
     }
 }

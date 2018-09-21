@@ -42,6 +42,7 @@ public class NextPermutation {
     }
 
     private void swap(int[] nums, int i, int j) {
+        // 交换数组元素
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;

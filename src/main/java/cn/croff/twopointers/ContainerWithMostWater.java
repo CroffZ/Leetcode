@@ -12,19 +12,21 @@ public class ContainerWithMostWater {
 
     public int maxArea(int[] height) {
         int max = 0;
-        int i = 0, j = height.length - 1;
-        while (i < j) {
+        // 使用双指针，从两侧向中间遍历，分别代表最大容器的两侧高度
+        int left = 0, right = height.length - 1;
+        while (left < right) {
             int area;
-            if (height[i] > height[j]) {
-                area = (j - i) * height[j];
-                j--;
+            if (height[left] > height[right]) {
+                // 左高度大于右高度时，想要比当前容量更大的话就要右指针移动
+                area = (right - left) * height[right];
+                right--;
             } else {
-                area = (j - i) * height[i];
-                i++;
+                // 左高度小于右高度时，想要比当前容量更大的话就要左指针移动
+                area = (right - left) * height[left];
+                left++;
             }
-            if (area > max) {
-                max = area;
-            }
+            // 更新最大容量
+            if (area > max) max = area;
         }
         return max;
     }

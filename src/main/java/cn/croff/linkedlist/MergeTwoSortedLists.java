@@ -10,34 +10,20 @@ package cn.croff.linkedlist;
  */
 public class MergeTwoSortedLists {
 
-    /*
-     * Definition for singly-linked list.
-     * public class ListNode {
-     *     int val;
-     *     ListNode next;
-     *     ListNode(int x) { val = x; }
-     * }
-     */
-
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode result = null, current = null;
-        while (l1 != null || l2 != null) {
+        // 当l1和l2都不为null时进入比较
+        while (l1 != null && l2 != null) {
+            // 得出l1和l2中较小的那个值
             int num;
-            if (l1 == null) {
+            if (l1.val >= l2.val) {
                 num = l2.val;
                 l2 = l2.next;
-            } else if (l2 == null) {
+            } else {
                 num = l1.val;
                 l1 = l1.next;
-            } else {
-                if (l1.val >= l2.val) {
-                    num = l2.val;
-                    l2 = l2.next;
-                } else {
-                    num = l1.val;
-                    l1 = l1.next;
-                }
             }
+            // 把这个值添加进结果链表
             if (current == null) {
                 result = new ListNode(num);
                 current = result;
@@ -45,6 +31,15 @@ public class MergeTwoSortedLists {
                 current.next = new ListNode(num);
                 current = current.next;
             }
+        }
+        // 把剩下未处理的l1或l2接到结果链表的尾部
+        if (l1 == null) {
+            if (result == null) return l2;
+            else current.next = l2;
+        }
+        if (l2 == null) {
+            if (result == null) return l1;
+            else current.next = l1;
         }
         return result;
     }

@@ -19,6 +19,13 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         return new int[]{findFirst(nums, target), findLast(nums, target, 0, nums.length - 1)};
     }
 
+    /**
+     * 二分法迭代实现
+     *
+     * @param nums   排序数组
+     * @param target 查找目标
+     * @return 目标第一次出现的下标，没找到就返回-1
+     */
     private int findFirst(int[] nums, int target) {
         int start = 0, end = nums.length - 1, mid;
         while (start <= end) {
@@ -30,6 +37,15 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         return -1;
     }
 
+    /**
+     * 二分法递归实现
+     *
+     * @param nums   排序数组
+     * @param target 查找目标
+     * @param start  开始下标
+     * @param end    结束下标
+     * @return 目标最后一次出现的下标，没找到就返回-1
+     */
     private int findLast(int[] nums, int target, int start, int end) {
         if (start > end) return -1;
         int mid = (start + end) / 2;

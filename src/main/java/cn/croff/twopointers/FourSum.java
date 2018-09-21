@@ -1,6 +1,8 @@
 package cn.croff.twopointers;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 18. 4Sum
@@ -21,31 +23,35 @@ import java.util.*;
 public class FourSum {
 
     public List<List<Integer>> fourSum(int[] nums, int target) {
+        // 先把数组排序，时间复杂度为O(nlogn)
         Arrays.sort(nums);
-        Set<List<Integer>> result = new HashSet<>(nums.length);
+        List<List<Integer>> result = new ArrayList<>(nums.length);
         for (int i = 0; i < nums.length - 3; i++) {
+            // 遍历到nums[i]时，只要后三数之和再加nums[i]等于target即可，接下来的if语句用于去重
+            if (i != 0 && nums[i] == nums[i - 1]) continue;
             for (int j = i + 1; j < nums.length - 2; j++) {
+                // 内层遍历到nums[j]时，只要后两数之和再加nums[i]和nums[j]等于target即可，接下来的if语句用于去重
+                if (j != i + 1 && nums[j] == nums[j - 1]) continue;
                 int firstTwoSum = nums[i] + nums[j];
-                int p1 = j + 1, p2 = nums.length - 1;
-                while (p1 < p2) {
-                    int sum = firstTwoSum + nums[p1] + nums[p2];
+                int left = j + 1, right = nums.length - 1;
+                while (left < right) {
+                    // 采用双指针的思想，从两边向中间搜索，时间复杂度为O(n)
+                    int sum = firstTwoSum + nums[left] + nums[right];
                     if (sum == target) {
-                        List<Integer> newSum = new ArrayList<>();
-                        newSum.add(nums[i]);
-                        newSum.add(nums[j]);
-                        newSum.add(nums[p1]);
-                        newSum.add(nums[p2]);
-                        result.add(newSum);
-                        p1++;
-                        p2--;
+                        // 找到一组解后添加到解集中，然后两个while语句用来去重
+                        result.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                        while (left < right && nums[left] == nums[left + 1]) left++;
+                        while (left < right && nums[right] == nums[right - 1]) right--;
+                        left++;
+                        right--;
                     } else if (sum < target) {
-                        p1++;
+                        left++;
                     } else {
-                        p2--;
+                        right--;
                     }
                 }
             }
         }
-        return new ArrayList<>(result);
+        return result;
     }
 }

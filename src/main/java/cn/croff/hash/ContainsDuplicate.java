@@ -20,14 +20,15 @@ import java.util.HashSet;
 public class ContainsDuplicate {
 
     public boolean containsDuplicate(int[] nums) {
+        // 用Set来保存出现过的数字
         HashSet<Integer> set = new HashSet<>();
         for (int num : nums) {
-            if (set.contains(num)) {
-                return true;
-            } else {
-                set.add(num);
-            }
+            // 如果Set中已经存在该数字则表示之前出现过
+            if (set.contains(num)) return true;
+            // 没有出现过就添加到Set中
+            set.add(num);
         }
+        // 遍历完则表示没有重复
         return false;
     }
 }

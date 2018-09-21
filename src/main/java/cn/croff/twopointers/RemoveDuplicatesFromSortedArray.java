@@ -17,18 +17,13 @@ package cn.croff.twopointers;
 public class RemoveDuplicatesFromSortedArray {
 
     public int removeDuplicates(int[] nums) {
-        if (nums.length < 2) {
-            return nums.length;
+        if (nums.length < 2) return nums.length;
+        // length记录新数组的长度
+        int length = 1;
+        for (int i = 1; i < nums.length; i++) {
+            // 遍历数组，如果与前一个数不一样就放在新数组末尾，然后更新length
+            if (nums[i] != nums[i - 1]) nums[length++] = nums[i];
         }
-
-        int p1 = 0, p2 = 1;
-        while (p2 < nums.length) {
-            if (nums[p2] != nums[p1]) {
-                p1++;
-                nums[p1] = nums[p2];
-            }
-            p2++;
-        }
-        return p1 + 1;
+        return length;
     }
 }

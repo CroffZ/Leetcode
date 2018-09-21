@@ -20,6 +20,13 @@ package cn.croff.binarysearch;
  */
 public class SearchInsertPosition {
 
+    /**
+     * 二分法迭代实现
+     *
+     * @param nums   旋转排序数组
+     * @param target 查找目标
+     * @return 目标出现的下标，没找到就返回从左到右第一个比目标大的元素下标
+     */
     public int searchInsert(int[] nums, int target) {
         int low = 0, high = nums.length - 1, mid;
         while (low <= high) {

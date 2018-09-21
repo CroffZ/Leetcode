@@ -18,25 +18,18 @@ package cn.croff.dynamicprograming;
 public class HouseRobber {
 
     public int rob(int[] nums) {
-        if (nums.length > 0) {
-            int[][] max = new int[nums.length][2];
-            max[0][0] = 0;
-            max[0][1] = nums[0];
-            for (int i = 1; i < nums.length; i++) {
-                if (max[i - 1][0] >= max[i - 1][1]) {
-                    max[i][0] = max[i - 1][0];
-                } else {
-                    max[i][0] = max[i - 1][1];
-                }
-                max[i][1] = max[i - 1][0] + nums[i];
-            }
-            if (max[nums.length - 1][0] >= max[nums.length - 1][1]) {
-                return max[nums.length - 1][0];
-            } else {
-                return max[nums.length - 1][1];
-            }
-        } else {
-            return 0;
+        if (nums.length == 0) return 0;
+        // max[i][0]表示不抢第i个能获得的最大收益，max[i][1]表示抢第i个能获得的最大收益
+        int[][] max = new int[nums.length][2];
+        max[0][0] = 0;
+        max[0][1] = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            // max[i][0]等于max[i-1][0]和max[i-1][1]中较大的值
+            max[i][0] = max[i - 1][0] >= max[i - 1][1] ? max[i - 1][0] : max[i - 1][1];
+            // 如果选择抢第i个则不可以抢第i-1个
+            max[i][1] = max[i - 1][0] + nums[i];
         }
+        // 返回最后一个选择抢或不抢的较大值
+        return max[nums.length - 1][0] >= max[nums.length - 1][1] ? max[nums.length - 1][0] : max[nums.length - 1][1];
     }
 }

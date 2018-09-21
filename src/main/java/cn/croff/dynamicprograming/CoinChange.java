@@ -1,7 +1,5 @@
 package cn.croff.dynamicprograming;
 
-import java.util.Arrays;
-
 /**
  * 322. Coin Change
  * You are given coins of different denominations and a total amount of money amount.
@@ -22,27 +20,20 @@ import java.util.Arrays;
 public class CoinChange {
 
     public int coinChange(int[] coins, int amount) {
-        if (amount == 0) {
-            return 0;
-        }
-
+        // 先写出状态转移方程，再用DP优化，去除重复计算
+        if (amount == 0) return 0;
         int[] records = new int[amount + 1];
-        Arrays.sort(coins);
         for (int i = 1; i <= amount; i++) {
             int min = -1;
             for (int coin : coins) {
-                if (i >= coin) {
-                    int num = 1 + records[i - coin];
-                    if (num > 0 && (num < min || min == -1)) {
-                        min = num;
-                    }
-                } else {
-                    break;
-                }
+                if (i < coin) continue;
+                int previousRecord = records[i - coin];
+                if (previousRecord < 0) continue;
+                int newRecord = 1 + previousRecord;
+                if (min == -1 || newRecord < min) min = newRecord;
             }
             records[i] = min;
         }
-        int result = records[amount];
-        return result == 0 ? -1 : result;
+        return records[amount];
     }
 }

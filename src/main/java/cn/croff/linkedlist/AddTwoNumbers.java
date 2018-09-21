@@ -14,19 +14,13 @@ package cn.croff.linkedlist;
  */
 public class AddTwoNumbers {
 
-    /*
-     * Definition for singly-linked list.
-     * public class ListNode {
-     *     int val;
-     *     ListNode next;
-     *     ListNode(int x) { val = x; }
-     * }
-     */
-
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        // carry保存进位，result保存结果链表的头，current保存处理结果链表的当前位置
         int carry = 0;
         ListNode result = null, current = null;
+        // 只要l1和l2有一个不是null，或者carry为1时就继续处理
         while (l1 != null || l2 != null || carry > 0) {
+            // 计算本次迭代的相加结果和进位
             int num1 = 0, num2 = 0;
             if (l1 != null) {
                 num1 = l1.val;
@@ -37,6 +31,8 @@ public class AddTwoNumbers {
                 l2 = l2.next;
             }
             int num = (num1 + num2 + carry) % 10;
+            carry = (num1 + num2 + carry) / 10;
+            // 更新current指向的位置
             if (current == null) {
                 result = new ListNode(num);
                 current = result;
@@ -44,7 +40,6 @@ public class AddTwoNumbers {
                 current.next = new ListNode(num);
                 current = current.next;
             }
-            carry = (num1 + num2 + carry) / 10;
         }
         return result;
     }

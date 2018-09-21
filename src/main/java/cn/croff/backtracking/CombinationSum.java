@@ -36,15 +36,26 @@ public class CombinationSum {
         return result;
     }
 
-    private void find(int[] candidates, int target, List<List<Integer>> list, List<Integer> temp) {
+    /**
+     * 使用回溯法递归求解
+     *
+     * @param candidates candidate数组
+     * @param target     还需达到的目标
+     * @param result     保存结果的List
+     * @param path       保存回溯路径的List
+     */
+    private void find(int[] candidates, int target, List<List<Integer>> result, List<Integer> path) {
         if (target == 0) {
-            list.add(new ArrayList<>(temp));
+            // 递归终止条件
+            result.add(new ArrayList<>(path));
         } else if (target > 0) {
+            // 对每个candidate递归查询
             for (int i : candidates) {
-                if (i <= target && (temp.isEmpty() || i >= temp.get(temp.size() - 1))) {
-                    temp.add(i);
-                    find(candidates, target - i, list, temp);
-                    temp.remove(temp.size() - 1);
+                if (i <= target && (path.isEmpty() || i >= path.get(path.size() - 1))) {
+                    // 优化条件：当path数组为空或i>=temp数组中最后一个元素时才回溯，可以去掉重复答案
+                    path.add(i);
+                    find(candidates, target - i, result, path);
+                    path.remove(path.size() - 1);
                 }
             }
         }

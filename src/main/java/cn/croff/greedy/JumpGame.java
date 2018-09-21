@@ -19,15 +19,15 @@ public class JumpGame {
 
     public boolean canJump(int[] nums) {
         int max = 0;
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length && max < nums.length - 1; i++) {
+            // 确定从当前步能够到的最远位置
             int reach = nums[i] + i;
-            if (reach > max) {
-                max = reach;
-            }
-            if (i == max && i < nums.length - 1) {
-                return false;
-            }
+            // 如果最远位置超过max则更新max
+            if (reach > max) max = reach;
+            // 如果当前位置已经是max了但还没走到最后则表示无法到达最后
+            if (i == max && i < nums.length - 1) return false;
         }
+        // 跳出循环时表示可以到达最后
         return true;
     }
 }

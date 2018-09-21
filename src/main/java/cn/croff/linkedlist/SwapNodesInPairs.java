@@ -13,41 +13,15 @@ package cn.croff.linkedlist;
  */
 public class SwapNodesInPairs {
 
-    /*
-     * Definition for singly-linked list.
-     * public class ListNode {
-     *     int val;
-     *     ListNode next;
-     *     ListNode(int x) { val = x; }
-     * }
-     */
-
     public ListNode swapPairs(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-
-        ListNode p0, p1 = head, p2 = p1.next, p3 = p2.next;
-        head = p2;
-        head.next = p1;
-        p1.next = p3;
-        while (true) {
-            p0 = p1;
-            p1 = p3;
-            if (p1 != null) {
-                p2 = p1.next;
-            } else {
-                break;
-            }
-            if (p2 != null) {
-                p3 = p2.next;
-            } else {
-                break;
-            }
-            p0.next = p2;
-            p2.next = p1;
-            p1.next = p3;
-        }
-        return head;
+        // 如果剩下的链表长度小于等于1就直接返回
+        if (head == null || head.next == null) return head;
+        // 把接下来的两个结点交换位置
+        ListNode newHead = head.next, next = head.next.next;
+        newHead.next = head;
+        // 递归处理剩下的结点
+        head.next = swapPairs(next);
+        // 返回处理后的新链表头
+        return newHead;
     }
 }

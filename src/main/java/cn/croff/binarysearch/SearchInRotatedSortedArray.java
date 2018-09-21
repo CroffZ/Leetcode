@@ -17,7 +17,15 @@ package cn.croff.binarysearch;
  */
 public class SearchInRotatedSortedArray {
 
+    /**
+     * 二分法迭代实现
+     *
+     * @param nums   旋转排序数组
+     * @param target 查找目标
+     * @return 目标出现的下标，没找到就返回-1
+     */
     public int search(int[] nums, int target) {
+        // 画图理解，梯形+三角形
         int start = 0, end = nums.length - 1, mid;
         while (start <= end) {
             mid = (start + end) / 2;

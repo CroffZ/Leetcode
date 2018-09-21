@@ -18,23 +18,29 @@ import java.util.List;
 public class GenerateParentheses {
 
     public List<String> generateParenthesis(int n) {
-        return generateParenthesis(n, n, "", new ArrayList<>());
+        List<String> result = new ArrayList<>();
+        generateParenthesis(n, n, "", result);
+        return result;
     }
 
-    private List<String> generateParenthesis(int left, int right, String str, List<String> result) {
+    /**
+     * 使用回溯法递归求解
+     *
+     * @param left   还需要的左括号数
+     * @param right  还需要的右括号数
+     * @param str    保存回溯路径的String
+     * @param result 保存结果的List
+     */
+    private void generateParenthesis(int left, int right, String str, List<String> result) {
         if (left == 0 && right == 0) {
+            // 递归终止条件
             result.add(str);
-            return result;
+            return;
         }
 
-        if (left > 0) {
-            result = generateParenthesis(left - 1, right, str + "(", result);
-        }
-
-        if (right > left) {
-            result = generateParenthesis(left, right - 1, str + ")", result);
-        }
-
-        return result;
+        // 如果左括号没够就加一个左括号再回溯
+        if (left > 0) generateParenthesis(left - 1, right, str + "(", result);
+        // 如果右括号比左括号少就加一个右括号再回溯
+        if (right > left) generateParenthesis(left, right - 1, str + ")", result);
     }
 }

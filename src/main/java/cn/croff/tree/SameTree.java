@@ -17,25 +17,11 @@ package cn.croff.tree;
  */
 public class SameTree {
 
-    /*
-     * Definition for a binary tree node.
-     * public class TreeNode {
-     *     int val;
-     *     TreeNode left;
-     *     TreeNode right;
-     *     TreeNode(int x) { val = x; }
-     * }
-     */
-
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        if (p == null && q == null) {
-            return true;
-        }
-
-        if (q == null || p == null || p.val != q.val) {
-            return false;
-        }
-
+        // 都为null或都不为null且值相等时才返回true，否则返回false
+        if (p == null && q == null) return true;
+        if (q == null || p == null || p.val != q.val) return false;
+        // 对左右子树递归处理并返回结果
         return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
 }

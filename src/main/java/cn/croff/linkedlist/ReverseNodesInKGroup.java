@@ -18,12 +18,15 @@ public class ReverseNodesInKGroup {
 
     public ListNode reverseKGroup(ListNode head, int k) {
         if (head == null) return null;
+        // 判断剩下的链表长度是否足够
         int count = 0;
         for (ListNode node = head; node != null; node = node.next) {
             count++;
             if (count == k) break;
         }
+        // 如果不够就不反转了，直接返回
         if (count < k) return head;
+        // 迭代法反转链表的前k个结点
         ListNode pre = head, cur = head.next;
         for (int i = 1; i < k && cur != null; i++) {
             ListNode temp = cur.next;
@@ -31,7 +34,9 @@ public class ReverseNodesInKGroup {
             pre = cur;
             cur = temp;
         }
+        // 递归处理剩下的链表
         head.next = reverseKGroup(cur, k);
+        // 返回反转后的链表头
         return pre;
     }
 }

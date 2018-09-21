@@ -16,34 +16,21 @@ package cn.croff.linkedlist;
  */
 public class RemoveNthNodeFromEndOfList {
 
-    /*
-     * Definition for singly-linked list.
-     * public class ListNode {
-     *     int val;
-     *     ListNode next;
-     *     ListNode(int x) { val = x; }
-     * }
-     */
-
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode fast = head;
-        ListNode slow = head;
-        ListNode pre = head;
-        for (int i = 0; i < n; i++) {
+        if (head == null) return null;
+        // 用一个dummy放在头节点之前，便于删除头节点，快慢指针都从dummy开始
+        ListNode dummy = new ListNode(0), fast, slow;
+        dummy.next = head;
+        fast = slow = dummy;
+        // 快指针先走n步
+        for (int i = 0; i < n; i++) fast = fast.next;
+        // 然后快慢指针一起走，直到快指针指向最后一个节点
+        while (fast.next != null) {
             fast = fast.next;
-        }
-
-        while (fast != null) {
-            fast = fast.next;
-            pre = slow;
             slow = slow.next;
         }
-
-        if (pre == slow) {
-            return pre.next;
-        } else {
-            pre.next = slow.next;
-            return head;
-        }
+        // 删除慢指针的下一个节点，返回dummy的下一个节点，也就是新的头节点
+        slow.next = slow.next.next;
+        return dummy.next;
     }
 }

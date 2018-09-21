@@ -13,29 +13,12 @@ package cn.croff.linkedlist;
  */
 public class RemoveDuplicatesFromSortedList {
 
-    /*
-     * Definition for singly-linked list.
-     * public class ListNode {
-     *     int val;
-     *     ListNode next;
-     *     ListNode(int x) { val = x; }
-     * }
-     */
-
     public ListNode deleteDuplicates(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-
-        ListNode pre = head, cur = head.next;
-        while (cur != null) {
-            if (cur.val == pre.val) {
-                cur = cur.next;
-                pre.next = cur;
-            } else {
-                pre = cur;
-                cur = cur.next;
-            }
+        ListNode current = head;
+        while (current != null && current.next != null) {
+            // current与current.next值相同时删除current.next，否则继续遍历下一个节点
+            if (current.val == current.next.val) current.next = current.next.next;
+            else current = current.next;
         }
         return head;
     }

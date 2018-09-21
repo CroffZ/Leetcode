@@ -21,20 +21,9 @@ package cn.croff.linkedlist;
  */
 public class RotateList {
 
-    /*
-     * Definition for singly-linked list.
-     * public class ListNode {
-     *     int val;
-     *     ListNode next;
-     *     ListNode(int x) { val = x; }
-     * }
-     */
-
     public ListNode rotateRight(ListNode head, int k) {
-        if (k == 0 || head == null) {
-            return head;
-        }
-
+        if (k == 0 || head == null) return head;
+        // 先计算链表长度，用于处理k大于等于链表长度的情况
         int length = 0;
         ListNode node = head;
         while (node != null) {
@@ -42,25 +31,25 @@ public class RotateList {
             length++;
         }
         k = k % length;
-        if (k == 0) {
-            return head;
-        }
-
-        ListNode p1pre = head, p1 = head, p2pre = null, p2 = head;
+        if (k == 0) return head;
+        // 用快慢指针找出倒数第k个结点
+        ListNode slowPre = head, slow = head, fastPre = head, fast = head;
+        // 快指针先走k步
         for (int i = 0; i < k; i++) {
-            p2pre = p2;
-            p2 = p2.next;
+            fastPre = fast;
+            fast = fast.next;
         }
-
-        while (p2 != null) {
-            p1pre = p1;
-            p1 = p1.next;
-            p2pre = p2;
-            p2 = p2.next;
+        // 快慢指针一起走，直到快指针走到尾
+        while (fast != null) {
+            slowPre = slow;
+            slow = slow.next;
+            fastPre = fast;
+            fast = fast.next;
         }
-
-        p1pre.next = null;
-        p2pre.next = head;
-        return p1;
+        // 把慢指针开始的结点移到链表头
+        slowPre.next = null;
+        fastPre.next = head;
+        // 慢指针就是新的链表头
+        return slow;
     }
 }

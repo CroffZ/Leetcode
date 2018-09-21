@@ -22,14 +22,14 @@ public class ReverseInteger {
 
     public int reverse(int x) {
         int result = 0;
-        while (x != 0) {
-            int num = x % 10;
-            if (result > Integer.MAX_VALUE / 10 || result < Integer.MIN_VALUE / 10) {
-                return 0;
-            } else {
-                result = result * 10 + num;
-            }
-            x /= 10;
+        for (int temp = x; temp != 0; temp /= 10) {
+            int num = temp % 10;
+            // 当result向上溢出时，直接返回0
+            if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && num > 7)) return 0;
+            // 当result向下溢出时，直接返回0
+            if (result < Integer.MIN_VALUE / 10 || (result == Integer.MIN_VALUE / 10 && num < -8)) return 0;
+            // 更新result的值
+            result = result * 10 + num;
         }
         return result;
     }

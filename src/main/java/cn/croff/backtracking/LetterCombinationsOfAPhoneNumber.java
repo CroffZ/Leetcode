@@ -23,22 +23,30 @@ public class LetterCombinationsOfAPhoneNumber {
         if (digits.length() == 0) {
             return new ArrayList<>();
         }
-
-        return letterCombinations(digits, "", new ArrayList<>());
+        List<String> result = new ArrayList<>();
+        letterCombinations(digits, "", result);
+        return result;
     }
 
-    private List<String> letterCombinations(String digits, String str, List<String> result) {
+    /**
+     * 使用回溯法递归求解
+     *
+     * @param digits 输入的数字数组
+     * @param str    保存回溯路径的String
+     * @param result 保存结果的List
+     */
+    private void letterCombinations(String digits, String str, List<String> result) {
         if (digits.length() == 0) {
+            // 递归终止条件
             result.add(str);
-            return result;
+            return;
         }
 
-        String sub = digits.substring(1);
+        String rest = digits.substring(1);
         String chars = phone[digits.charAt(0) - '2'];
         for (int i = 0; i < chars.length(); i++) {
-            result = letterCombinations(sub, str + chars.charAt(i), result);
+            // 对当前数字的每一个对应字母进行回溯
+            letterCombinations(rest, str + chars.charAt(i), result);
         }
-
-        return result;
     }
 }

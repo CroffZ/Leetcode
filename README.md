@@ -5,12 +5,16 @@
 ### Array
 * 4.Median of Two Sorted Arrays
 * 31.Next Permutation
+* 48.Rotate Image
+* 56.Merge Intervals
+* 121.Best Time to Buy and Sell Stock
 * 189.Rotate Array
 
 ### Backtracking
 * 17.Letter Combinations of a Phone Number
 * 22.Generate Parentheses
 * 39.Combination Sum
+* 46.Permutations
 
 ### Binary Search
 * 33.Search in Rotated Sorted Array
@@ -21,18 +25,24 @@
 * 10.Regular Expression Matching
 * 32.Longest Valid Parentheses
 * 53.Maximum Subarray
+* 62.Unique Paths
+* 63.Unique Paths II
+* 64.Minimum Path Sum
 * 70.Climbing Stairs
-* 121.Best Time to Buy and Sell Stock
+* 72.Edit Distance
+* 122.Best Time to Buy and Sell Stock II
 * 152.Maximum Product Subarray
 * 198.House Robber
 * 322.Coin Change
 
 ### Greedy Algorithm
+* 45.Jump Game II
 * 55.Jump Game
 
 ### Hash
 * 1.Two Sum
 * 3.Longest Substring Without Repeating Characters
+* 49.Group Anagrams
 * 146.LRU Cache
 * 217.Contains Duplicate
 
@@ -54,6 +64,8 @@
 
 ### Stack
 * 20.Valid Parentheses
+* 84.Largest Rectangle in Histogram
+* 85.Maximal Rectangle
 
 ### String
 * 5.Longest Palindromic Substring
@@ -65,6 +77,7 @@
 ### Tree
 * 94.Binary Tree Inorder Traversal
 * 100.Same Tree
+* 124.Binary Tree Maximum Path Sum
 
 ### Two Pointers
 * 11.Container With Most Water
@@ -73,8 +86,8 @@
 * 18.4Sum
 * 26.Remove Duplicates from Sorted Array
 * 27.Remove Element
-
----
+* 42.Trapping Rain Water
+* 75.Sort Colors
 
 ## Sort Algorithm
 * Bubble Sort

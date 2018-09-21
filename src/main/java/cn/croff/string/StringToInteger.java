@@ -35,6 +35,7 @@ package cn.croff.string;
 public class StringToInteger {
 
     public int myAtoi(String str) {
+        // 去掉开头的空格
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) != ' ') {
                 str = str.substring(i);
@@ -42,8 +43,10 @@ public class StringToInteger {
             }
         }
 
+        int result = 0;
         if (str.length() > 0) {
-            int sign = 0;
+            // 根据第一个字符判断是正数或负数，并把开头的符号去掉
+            int sign;
             char first = str.charAt(0);
             if (first == '-') {
                 sign = -1;
@@ -54,37 +57,33 @@ public class StringToInteger {
             } else if (first >= '0' && first <= '9') {
                 sign = 1;
             } else {
-                return 0;
+                // 第一个字符是非法字符
+                return result;
             }
 
-            int result = 0;
             for (int i = 0; i < str.length(); i++) {
                 char ch = str.charAt(i);
                 if (ch >= '0' && ch <= '9') {
                     int number = (ch - '0') * sign;
                     if (sign < 0) {
-                        if (result < Integer.MIN_VALUE / 10) {
-                            return Integer.MIN_VALUE;
-                        }
-                        if (result == Integer.MIN_VALUE / 10 && number <= -8) {
+                        // 判断负数溢出
+                        if (result < Integer.MIN_VALUE / 10 || (result == Integer.MIN_VALUE / 10 && number <= -8)) {
                             return Integer.MIN_VALUE;
                         }
                     } else {
-                        if (result > Integer.MAX_VALUE / 10) {
-                            return Integer.MAX_VALUE;
-                        }
-                        if (result == Integer.MAX_VALUE / 10 && number >= 7) {
+                        // 判断正数溢出
+                        if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && number >= 7)) {
                             return Integer.MAX_VALUE;
                         }
                     }
+                    // 更新result
                     result = result * 10 + number;
                 } else {
                     break;
                 }
             }
-            return result;
-        } else {
-            return 0;
+
         }
+        return result;
     }
 }
