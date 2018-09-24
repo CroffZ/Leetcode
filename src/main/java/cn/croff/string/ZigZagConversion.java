@@ -26,36 +26,26 @@ package cn.croff.string;
 public class ZigZagConversion {
 
     public String convert(String s, int numRows) {
-        if (numRows > 1) {
-            int cycle = (numRows - 1) * 2;
-            StringBuilder result = new StringBuilder();
-            for (int i = 0; i < numRows; i++) {
-                if (i == 0) {
-                    // 第一行
-                    for (int j = 0; j < s.length(); j += cycle) {
-                        result.append(s.charAt(j));
-                    }
-                } else if (i == numRows - 1) {
-                    // 最后一行
-                    for (int j = cycle / 2; j < s.length(); j += cycle) {
-                        result.append(s.charAt(j));
-                    }
-                } else {
-                    // 其他
-                    for (int j = 0; j < s.length(); j += cycle) {
-                        int index1 = j + i, index2 = j + cycle - i;
-                        if (index1 < s.length()) {
-                            result.append(s.charAt(index1));
-                        }
-                        if (index2 < s.length()) {
-                            result.append(s.charAt(index2));
-                        }
-                    }
-                }
-            }
-            return result.toString();
-        } else {
-            return s;
+        if (numRows == 1) return s;
+        int cycle = (numRows - 1) * 2;
+        StringBuilder result = new StringBuilder();
+        // 第一行
+        for (int j = 0; j < s.length(); j += cycle) {
+            result.append(s.charAt(j));
         }
+        // 其他行
+        for (int i = 1; i < numRows - 1; i++) {
+            // 处理每一列的一个或两个元素
+            for (int j = 0; j < s.length(); j += cycle) {
+                int index1 = j + i, index2 = j + cycle - i;
+                if (index1 < s.length()) result.append(s.charAt(index1));
+                if (index2 < s.length()) result.append(s.charAt(index2));
+            }
+        }
+        // 最后一行
+        for (int j = cycle / 2; j < s.length(); j += cycle) {
+            result.append(s.charAt(j));
+        }
+        return result.toString();
     }
 }
