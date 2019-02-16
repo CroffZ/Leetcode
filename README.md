@@ -15,6 +15,7 @@
 * 22.Generate Parentheses
 * 39.Combination Sum
 * 46.Permutations
+* 78.Subsets
 
 ### Binary Search
 * 33.Search in Rotated Sorted Array

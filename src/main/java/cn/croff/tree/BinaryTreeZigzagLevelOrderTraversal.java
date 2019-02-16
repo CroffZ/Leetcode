@@ -27,9 +27,11 @@ public class BinaryTreeZigzagLevelOrderTraversal {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
+        // 交替用两个栈来暂存中间结果
         Stack<TreeNode> stack1 = new Stack<>(), stack2 = new Stack<>();
         stack1.push(root);
-        boolean flag = true; // true for stack1, false for stack2
+        // flag为true时，从stack1中读取数据后存入stack2，false时相反
+        boolean flag = true;
         while (true) {
             List<Integer> list = new ArrayList<>();
             if (flag) {
@@ -37,6 +39,7 @@ public class BinaryTreeZigzagLevelOrderTraversal {
                 while (!stack1.empty()) {
                     TreeNode node = stack1.pop();
                     list.add(node.val);
+                    // 从左到右添加结点
                     if (node.left != null) stack2.push(node.left);
                     if (node.right != null) stack2.push(node.right);
                 }
@@ -46,6 +49,7 @@ public class BinaryTreeZigzagLevelOrderTraversal {
                 while (!stack2.empty()) {
                     TreeNode node = stack2.pop();
                     list.add(node.val);
+                    // 从右到左添加结点
                     if (node.right != null) stack1.push(node.right);
                     if (node.left != null) stack1.push(node.left);
                 }
