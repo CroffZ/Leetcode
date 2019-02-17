@@ -46,9 +46,11 @@ public class CombinationSum {
      */
     private void find(int[] candidates, int target, List<List<Integer>> result, List<Integer> path) {
         if (target == 0) {
-            // 递归终止条件
+            // 递归终止条件，把path复制一份加入result
             result.add(new ArrayList<>(path));
-        } else if (target > 0) {
+            return;
+        }
+        if (target > 0) {
             // 对每个candidate递归查询
             for (int i : candidates) {
                 if (i <= target && (path.isEmpty() || i >= path.get(path.size() - 1))) {
