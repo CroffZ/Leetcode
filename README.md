@@ -17,6 +17,7 @@
 * 40.Combination Sum II
 * 46.Permutations
 * 78.Subsets
+* 79.Word Search
 
 ### Binary Search
 * 33.Search in Rotated Sorted Array
