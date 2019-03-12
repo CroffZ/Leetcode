@@ -7,6 +7,7 @@
 * 31.Next Permutation
 * 48.Rotate Image
 * 56.Merge Intervals
+* 57.Insert Interval
 * 121.Best Time to Buy and Sell Stock
 * 189.Rotate Array
 

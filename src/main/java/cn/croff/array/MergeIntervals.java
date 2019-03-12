@@ -15,9 +15,24 @@ import java.util.List;
  * Example 2:
  * Input: [[1,4],[4,5]]
  * Output: [[1,5]]
- * Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
+ * Explanation: Intervals [1,4] and [4,5] are considered overlapping.
  */
 public class MergeIntervals {
+
+    class Interval {
+        int start;
+        int end;
+
+        Interval() {
+            start = 0;
+            end = 0;
+        }
+
+        Interval(int s, int e) {
+            start = s;
+            end = e;
+        }
+    }
 
     public List<Interval> merge(List<Interval> intervals) {
         if (intervals == null || intervals.size() < 2) return intervals;
@@ -41,20 +56,5 @@ public class MergeIntervals {
         // 把最后的current添加到结果List然后返回
         result.add(current);
         return result;
-    }
-
-    class Interval {
-        int start;
-        int end;
-
-        Interval() {
-            start = 0;
-            end = 0;
-        }
-
-        Interval(int s, int e) {
-            start = s;
-            end = e;
-        }
     }
 }
