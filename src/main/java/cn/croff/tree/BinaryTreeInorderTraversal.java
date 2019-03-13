@@ -10,6 +10,11 @@ import java.util.Stack;
  * <p>
  * Example:
  * Input: [1,null,2,3]
+ * 1
+ * \
+ * 2
+ * /
+ * 3
  * Output: [1,3,2]
  * <p>
  * Follow up: Recursive solution is trivial, could you do it iteratively?
@@ -42,7 +47,7 @@ public class BinaryTreeInorderTraversal {
      * @param root 根结点
      * @return 遍历结果List
      */
-    public List<Integer> inorderTraversal(TreeNode root) {
+    private List<Integer> inorderTraversalIteratively(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode node;

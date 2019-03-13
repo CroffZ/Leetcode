@@ -32,6 +32,11 @@ public class BinaryTreeMaximumPathSum {
         return result;
     }
 
+    /**
+     * DFS搜索最大路径和
+     * @param node 搜索开始的根结点
+     * @return 该节点之下的最大路径长度
+     */
     private int dfs(TreeNode node) {
         if (node == null) return 0;
         // 最大值有四个来源：root、root + 左边的某条路径、root + 右边的某条路径、root + 左边的某条路径 + 右边的某条路径

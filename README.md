@@ -80,9 +80,15 @@
 
 ### Tree
 * 94.Binary Tree Inorder Traversal
+* 98.Validate Binary Search Tree
 * 100.Same Tree
+* 101.Symmetric Tree
+* 102.Binary Tree Level Order Traversal
 * 103.Binary Tree Zigzag Level Order Traversal
+* 104.Maximum Depth of Binary Tree
+* 108.Convert Sorted Array to Binary Search Tree
 * 124.Binary Tree Maximum Path Sum
+* 144.Binary Tree Preorder Traversal
 
 ### Two Pointers
 * 11.Container With Most Water
