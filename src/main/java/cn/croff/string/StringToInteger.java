@@ -79,10 +79,10 @@ public class StringToInteger {
                     // 更新result
                     result = result * 10 + number;
                 } else {
+                    // 遇到非数字就跳出循环
                     break;
                 }
             }
-
         }
         return result;
     }

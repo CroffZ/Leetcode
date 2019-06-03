@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.croff</groupId>
-    <artifactId>Leetcode</artifactId>
+    <artifactId>OJLib</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Leetcode</name>
+    <name>OJLib</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,7 +23,7 @@
     </dependencies>
 
     <build>
-        <finalName>Leetcode</finalName>
+        <finalName>OJLib</finalName>
 
         <pluginManagement>
             <plugins>

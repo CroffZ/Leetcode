@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class LongestSubstringWithoutRepeatingCharacters {
 
     public int lengthOfLongestSubstring(String s) {
-        // start是子串的起始下标，maxLength是最大长度，作为结果返回
+        // start是子串的起始下标，max是最大长度，作为结果返回
         int start = 0, max = 0;
         // map的key是字符，value是字符出现的下标
         HashMap<Character, Integer> map = new HashMap<>(s.length());
@@ -26,7 +26,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
                 for (int j = start; j < lastIndex; j++) map.remove(s.charAt(j));
                 start = lastIndex + 1;
             } else {
-                // 如果字符之前没出现过，则根据start计算长度并更新最大长度
+                // 如果字符之前没出现过，则根据start计算长度并更新最大长度max
                 int length = i - start + 1;
                 if (length > max) max = length;
             }
