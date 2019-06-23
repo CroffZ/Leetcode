@@ -1,4 +1,5 @@
 # LeetcodeSolution
+Leetcode刷题的分类和答案记录
 
 ## Array
 * 4.Median of Two Sorted Arrays
